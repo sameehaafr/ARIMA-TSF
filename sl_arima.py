@@ -1,7 +1,7 @@
 
 import streamlit as st
 import pandas as pd
-from statsmodels.tsa.seasonal import seasonal_decompose
+# from statsmodels.tsa.seasonal import seasonal_decompose
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from statsmodels.tsa.arima.model import ARIMA
@@ -41,12 +41,12 @@ ts = CO_per_day(data=data)
 st.dataframe(data = ts)
 st.bar_chart(data=ts, y="Daily Mean PM10 Concentration")
 
-def seasonal_decomp(data):
-    dec_mul = seasonal_decompose(data, model = 'multiplicative', extrapolate_trend='freq')
-    plot = dec_mul.plot()
-    plt.rcParams.update({'figure.figsize': (10,10)})
-    st.pyplot(plot)
-seasonal_decomp(ts)
+# def seasonal_decomp(data):
+#     dec_mul = seasonal_decompose(data, model = 'multiplicative', extrapolate_trend='freq')
+#     plot = dec_mul.plot()
+#     plt.rcParams.update({'figure.figsize': (10,10)})
+#     st.pyplot(plot)
+# seasonal_decomp(ts)
 
 def build_arima(ts):
     # split into train and test sets
